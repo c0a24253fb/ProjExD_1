@@ -20,9 +20,10 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        x = tmr 
+        x = tmr % 3200
         screen.blit(bg_img, [-x, 0]) #背景画像
         screen.blit(bg_img2, [-x + 1600, 0]) #背景画像2
+        screen.blit(bg_img, [-x + 3200, 0]) #背景画像3
         screen.blit(kk_img, [300, 200]) #こうかとん
         pg.display.update()
         tmr += 1        
