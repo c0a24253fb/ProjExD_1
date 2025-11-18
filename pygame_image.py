@@ -12,6 +12,9 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     tmr = 0
 
+    kk_img = pg.image.load("fig/3.png") #こうかとん画像読み込み
+    kk_img = pg.transform.flip(kk_img, True, False) #こうかとん左右反転
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
