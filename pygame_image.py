@@ -21,6 +21,7 @@ def main():
 
         x = tmr 
         screen.blit(bg_img, [-x, 0]) #背景画像
+        screen.blit(bg_img, [-x + 1600, 0]) #背景画像2
         screen.blit(kk_img, [300, 200]) #こうかとん
         pg.display.update()
         tmr += 1        
