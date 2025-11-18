@@ -16,15 +16,28 @@ def main():
     kk_img = pg.image.load("fig/3.png") #こうかとん画像読み込み
     kk_img = pg.transform.flip(kk_img, True, False) #こうかとん左右反転
 
+    kk_rct = kk_img.get_rect() #こうかとんのrect
+    kk_rct.center = 300, 200 #こうかとん中心座標
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        x = tmr % 3200
+        x = tmr % 3200 #xは3200ごとにループ
+        key_lst = pg.key.get_pressed() #キーの押下状態取得
+        if key_lst[pg.K_UP]: #上キーが押されたら移動
+            kk_rct.move_ip((0,-1))
+        if key_lst[pg.K_DOWN]: #下キーが押されたら移動
+            kk_rct.move_ip((0,1))
+        if key_lst[pg.K_RIGHT]: #右キーが押されたら移動
+            kk_rct.move_ip((1,0))
+        if key_lst[pg.K_LEFT]: #左キーが押されたら移動
+            kk_rct.move_ip((-1,0))
+
         screen.blit(bg_img, [-x, 0]) #背景画像
         screen.blit(bg_img2, [-x + 1600, 0]) #背景画像2
         screen.blit(bg_img, [-x + 3200, 0]) #背景画像3
-        screen.blit(kk_img, [300, 200]) #こうかとん
+        screen.blit(kk_img, kk_rct) #こうかとん
         pg.display.update()
         tmr += 1        
         clock.tick(200)
