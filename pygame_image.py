@@ -30,9 +30,11 @@ def main():
         if key_lst[pg.K_DOWN]: #下キーが押されたら移動
             kk_rct.move_ip((0,1))
         if key_lst[pg.K_RIGHT]: #右キーが押されたら移動
-            kk_rct.move_ip((1,0))
+            kk_rct.move_ip((2,0))
         if key_lst[pg.K_LEFT]: #左キーが押されたら移動
             kk_rct.move_ip((-1,0))
+
+        kk_rct.centerx -= 1
 
         screen.blit(bg_img, [-x, 0]) #背景画像
         screen.blit(bg_img2, [-x + 1600, 0]) #背景画像2
